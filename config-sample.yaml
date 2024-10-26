@@ -1,0 +1,36 @@
+data:
+  trainpath: '/mounts/Datasets3/2023-SONDRA/mounts/Datasets4/GeoLifeCLEF2022'
+  testpath: '/mounts/Datasets3/2023-SONDRA/mounts/Datasets4/GeoLifeCLEF2022'
+  batch_size: 16
+  num_workers: 8
+  train_ratio: 1
+  tab_data: True
+  resize: False
+
+optim:
+  algo: Adam
+  params:
+    lr: 0.0005
+
+nepochs: 5
+loss: "CrossEntropyLoss"
+
+# Warning change your path to your own path
+# julien : /usr/users/sdi-labworks-2023-2024/sdi-labworks-2023-2024_8/DeepLearning/deepchallenge4-team4/
+# remi : /usr/users/cei2023_2024_sondra_cself/coscoy_rem/Documents/
+# arthur : /usr/users/sdi-labworks-2023-2024/sdi-labworks-2023-2024_17/DeepLearning/deepchallenge4-team4/logs
+
+logging:
+  wandb: 
+      project: multimodalcnn2_new ## TO CHANGE
+      entity: deep_challenge_t4
+  logdir: "/usr/users/sdi-labworks-2023-2024/sdi-labworks-2023-2024_17/DeepLearning/deepchallenge4-team4/logs"  # Better to provide the fullpath, especially on the cluster
+
+
+model:
+  class: MultimodalCNN2
+  num_layers : 3
+  embedding_landcover_size: 5
+
+submit:
+  submitdir: "/usr/users/sdi-labworks-2023-2024/sdi-labworks-2023-2024_17/DeepLearning/deepchallenge4-team4/submissions"
